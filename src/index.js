@@ -1,4 +1,4 @@
-export default function createUseEffect(effectCreator) {
+export default function createEffect(effectCreator) {
   return (...args) => {
     const ref = useRef({});
     ref.current.args = args;

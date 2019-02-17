@@ -1,6 +1,6 @@
 {
-  "name": "create-use-effect",
-  "version": "0.1.0",
+  "name": "create-effect",
+  "version": "0.2.0",
   "description": "A small utility to create custom hooks using useEffect",
   "main": "lib/index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/s-yadav/create-use-effect.git"
+    "url": "git+https://github.com/s-yadav/create-effect.git"
   },
   "keywords": [
     "use-effect",
@@ -18,7 +18,7 @@
   "author": "Sudhanshu Yadav",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/s-yadav/create-use-effect/issues"
+    "url": "https://github.com/s-yadav/create-effect/issues"
   },
-  "homepage": "https://github.com/s-yadav/create-use-effect#readme"
+  "homepage": "https://github.com/s-yadav/create-effect#readme"
 }
