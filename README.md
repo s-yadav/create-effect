@@ -57,11 +57,11 @@ const useTimeout = createEffect((handler, delay) => {
 
 ### Window event's effect (useWindowEvent)
 ```js
-const useWindowEvent = createUseEffect((event, handler) => {
-  window.addEventListener(event, handler);
+const useWindowEvent = createEffect((event, handler, captureMode) => {
+  window.addEventListener(event, handler, captureMode);
 
   return () => {
-    window.removeEventListener(event, handler);
+    window.removeEventListener(event, handler, captureMode);
   };
 });
 ```
