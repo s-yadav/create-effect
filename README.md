@@ -61,7 +61,7 @@ const useWindowEvent = createUseEffect((event, handler) => {
   window.addEventListener(event, handler);
 
   return () => {
-    window.addEventListener(event, handler);
+    window.removeEventListener(event, handler);
   };
 });
 ```
