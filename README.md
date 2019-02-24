@@ -1,4 +1,4 @@
-# create-use-effect
+# create-effect
 A small utility to create custom hooks with effects without worrying about the current scope. 
 
 ### Install
