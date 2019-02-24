@@ -93,6 +93,8 @@ function App() {
 }
 ```
 
+### Why not just useEffect?
+Check this out, [https://overreacted.io/making-setinterval-declarative-with-react-hooks/](https://overreacted.io/making-setinterval-declarative-with-react-hooks/)
 
 ### Like it?
 [:star: this repo](https://github.com/s-yadav/create-effect)
