@@ -1,13 +1,22 @@
 # create-use-effect
-A small utility to create custom hooks using useEffect
+A small utility to create custom hooks with effects without worrying about the current scope. 
 
 ### Install
 Through npm
 `npm install create-effect --save`
 
-## Creating Effects
+## API
+```js
+const useCustomEffectHook = createEffect(effectDefinition, addDependencies);
+```
+- `effectDefinition`: A function which matches the definition of the API for which you are creating effect hook for. It should return a function which will be used to cleanup the effect. See example for the [useInterval hook](https://github.com/s-yadav/create-effect#interval-effect-useinterval)
 
-### Interval effect (useInterval)
+- `addDependencies` (Default to true): By default it will figure out dependencies by the arguments you pass on the effectDefinition. If there are no dependencies on the argument, it will use an empty array as dependency causing effect to run only on the first render(mount). With addDependencies as false you can tell the createEffect that this effect has to run after each render. 
+
+
+## Creating Effect Hooks
+
+### Interval hook (useInterval)
 ```js
 import createEffect from 'create-effect';
 
@@ -42,7 +51,7 @@ export default function TestUseInterval() {
 
 
 
-### Timeout effect (useTimeout)
+### Timeout hook (useTimeout)
 ```js
 import createEffect from 'create-effect';
 
@@ -55,7 +64,7 @@ const useTimeout = createEffect((handler, delay) => {
 });
 ```
 
-### Window event's effect (useWindowEvent)
+### Window event's hook (useWindowEvent)
 ```js
 const useWindowEvent = createEffect((event, handler, captureMode) => {
   window.addEventListener(event, handler, captureMode);
@@ -83,3 +92,7 @@ function App() {
   );
 }
 ```
+
+
+### Like it?
+[:star: this repo](https://github.com/s-yadav/create-effect)
