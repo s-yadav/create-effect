@@ -1,5 +1,5 @@
 {
-  "name": "create-effect",
+  "name": "react-create-effect",
   "version": "0.3.3",
   "description": "A small utility to create custom hooks using useEffect",
   "main": "lib/index.js",

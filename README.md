@@ -1,35 +1,43 @@
-# create-effect
-A small utility to create custom hooks with effects without worrying about the current scope. 
+# react-create-effect
+
+A small utility to create custom hooks with effects without worrying about the current scope.
+
+**Note**
+The name of library is change from create-effect to react-create-effect in favour of giving away the `create-effect` npm package to `Effect` ecosystem (https://github.com/Effect-TS/effect)
 
 ### Install
+
 Through npm
-`npm install create-effect --save`
+`npm install react-create-effect --save`
 
 ## API
+
 ```js
 const useCustomEffectHook = createEffect(effectDefinition, addDependencies);
 ```
+
 - `effectDefinition`: A function which matches the definition of the API for which you are creating effect hook for. It should return a function which will be used to cleanup the effect. See example for the [useInterval hook](https://github.com/s-yadav/create-effect#interval-effect-useinterval)
 
-- `addDependencies` (Default to true): By default it will figure out dependencies by the arguments you pass on the effectDefinition. If there are no dependencies on the argument, it will use an empty array as dependency causing effect to run only on the first render(mount). With addDependencies as false you can tell the createEffect that this effect has to run after each render. 
-
+- `addDependencies` (Default to true): By default it will figure out dependencies by the arguments you pass on the effectDefinition. If there are no dependencies on the argument, it will use an empty array as dependency causing effect to run only on the first render(mount). With addDependencies as false you can tell the createEffect that this effect has to run after each render.
 
 ## Creating Effect Hooks
 
 ### Interval hook (useInterval)
+
 ```js
-import createEffect from 'create-effect';
+import createEffect from "react-create-effect";
 
 const useInterval = createEffect((handler, delay) => {
   const interval = setInterval(handler, delay);
 
   return () => {
     clearInterval(interval);
-  }
+  };
 });
 ```
 
-### useInterval example 
+### useInterval example
+
 ```js
 export default function TestUseInterval() {
   const [delay, setDelay] = useState(1000);
@@ -49,22 +57,22 @@ export default function TestUseInterval() {
 }
 ```
 
-
-
 ### Timeout hook (useTimeout)
+
 ```js
-import createEffect from 'create-effect';
+import createEffect from "react-create-effect";
 
 const useTimeout = createEffect((handler, delay) => {
   const timeout = setTimeout(handler, delay);
 
   return () => {
     clearTimeout(timeout);
-  }
+  };
 });
 ```
 
 ### Window event's hook (useWindowEvent)
+
 ```js
 const useWindowEvent = createEffect((event, handler, captureMode) => {
   window.addEventListener(event, handler, captureMode);
@@ -76,6 +84,7 @@ const useWindowEvent = createEffect((event, handler, captureMode) => {
 ```
 
 #### useWindowEvent example
+
 ```js
 function App() {
   const [open, setOpen] = useState(false);
@@ -94,7 +103,9 @@ function App() {
 ```
 
 ### Why not just useEffect?
+
 Check this out, [https://overreacted.io/making-setinterval-declarative-with-react-hooks/](https://overreacted.io/making-setinterval-declarative-with-react-hooks/)
 
 ### Like it?
+
 [:star: this repo](https://github.com/s-yadav/create-effect)
